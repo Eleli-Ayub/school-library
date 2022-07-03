@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 const Addbook = require('./routes/Addbook')
 const Viewbooks = require('./routes/Viewbooks')
 const Deletebook = require('./routes/Deletebook')
+const Searchbook = require('./routes/Searchbook')
+const Signup = require('./routes/Signup')
+const Signin = require('./routes/Signin')
 const cors = require('cors')
 require('dotenv').config()
 
@@ -27,6 +30,9 @@ mongoose.connect(process.env.MONGO_URL, ()=>{
 app.use('/api/book', Addbook)
 app.use('/api/book', Viewbooks)
 app.use('/api/book', Deletebook)
+app.use('/api/book', Searchbook)
+app.use('/api/users', Signup)
+app.use('/api/users', Signin)
 
 
 
@@ -35,5 +41,5 @@ app.listen(PORT, (error)=>{
     if (error) {
         return error
     }
-    console.log("App Running Succesifully");
+    console.log("Server is running");
 })
