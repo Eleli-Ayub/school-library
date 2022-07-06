@@ -10,7 +10,11 @@ router.post('/sign-in', async (req, res)=>{
         if (error) {
             res.send(error)
         }
-        res.send('Login Succesiful')
+        if (result.length > 0) {
+           res.send({loginstatus: true})
+        }else{
+            res.send({msg: "Invalid credentials"})
+        }
     })
 })
 
