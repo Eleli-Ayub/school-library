@@ -1,6 +1,5 @@
 import React , { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import Axios from 'axios'
 import './Login.scss'
 import axios from 'axios'
 
@@ -22,6 +21,7 @@ function Login() {
              }).then(()=>{
                 loginstatus ? navigate('/Homepage') : navigate('/')
              })
+             console.log(loginstatus);
              
     }
 

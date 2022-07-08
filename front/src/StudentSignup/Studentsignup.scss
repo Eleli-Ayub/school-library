@@ -1,0 +1,151 @@
+.studentsignup {
+  height: 100vh;
+  widows: 100vw;
+  background: url("Background1.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Aladin", cursive;
+    position: absolute;
+    top: 1%;
+    letter-spacing: 5px;
+  }
+
+  .inputContainer {
+    position: relative;
+    color: #fff;
+    height: 70%;
+    width: 30%;
+    box-shadow: 0px 0px 10px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .image {
+      position: absolute;
+      top: 30px;
+      height: 15%;
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: solid 2px #fff;
+
+      .input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        input {
+          display: none;
+        }
+
+        label {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: url("user.png");
+          background-position: center;
+          background-size: cover;
+          cursor: pointer;
+        }
+
+        p {
+          margin-left: 10px;
+        }
+      }
+      button {
+        background-color: aquamarine;
+        cursor: pointer;
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        border: none;
+        font-size: 15px;
+      }
+    }
+
+    .personalDetails {
+      position: absolute;
+      top: 25%;
+      height: 80%;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      div {
+        width: 80%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          height: fit-content;
+          align-items: start;
+          justify-content: center;
+
+          p {
+            font-size: 18px;
+          }
+          input {
+            background: transparent;
+            border: none;
+            border-bottom: solid 2px red;
+            font-size: 15px;
+            color: azure;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+      .terms {
+        width: fit-content;
+        letter-spacing: 2px;
+
+        a {
+          margin: 10px;
+        }
+      }
+      button {
+        background-color: aqua;
+        border: none;
+        height: 50px;
+        width: 120px;
+        font-size: 25px;
+        border-radius: 15px;
+      }
+      .bottom {
+        margin-bottom: 20px;
+        width: fit-content;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #fff;
+      opacity: 0.3;
+    }
+  }
+}
