@@ -4,14 +4,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Adminpage from "./AdminPage/Admin";
 import Addbook from "./Addbook/Addbook";
 import Checkout from "./Checkout/Checkout";
-import Students from "./Students/Students";
+import Studentpage from "./Studentspage/Studentpage";
 import Library_logs from "./LibraryLogs/Librarylogs";
-import Borrowedbooks from "./BorrowedBooks/Borrowedbooks";
 import Studentlogin from "./StudentLogin/Studentlogin";
 import Homepage from "./Homepage/Homepage";
 import Studentsignup from "./StudentSignup/Studentsignup";
 import Profile from "./StudentProfile/Profile";
 import Book from "./Bookprofile/Book";
+import Booksreport from "./AdminPage/Booksreport/Booksreport";
+import Borrowed from "./AdminPage/BorrowedBooks/Borrowed";
 
 function App() {
   return (
@@ -23,13 +24,14 @@ function App() {
           <Route path="/Adminpage" element={<Adminpage />} />
           <Route path="/Addbook" element={<Addbook />} />
           <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/Students" element={<Students />} />
           <Route path="/Librarylogs" element={<Library_logs />} />
-          <Route path="/Borrowedbooks" element={<Borrowedbooks />} />
           <Route path="/Studentlogin" element={<Studentlogin />} />
           <Route path="/Studentsignup" element={<Studentsignup />} />
           <Route path="/Studentprofile" element={<Profile />} />
           <Route path="/Bookprofile" element={<Book />} />
+          <Route path="/Studentspage" element={<Studentpage />} />
+          <Route path="/Booksreport" element={<Booksreport />} />
+          <Route path="/Borrowedbooks" element={<Borrowed />} />{" "}
         </Routes>
       </Router>
     </div>

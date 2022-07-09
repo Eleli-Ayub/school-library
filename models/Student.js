@@ -38,6 +38,7 @@ const studentSchema = mongoose.Schema({
   ],
   TotalPenalty: {
     type: Number,
+    required: true,
   },
 });
 

@@ -1,0 +1,114 @@
+.bookReportWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  a {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    height: 30px;
+    width: 120px;
+    color: black;
+    box-shadow: 0px 0px 5px #d40505;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .container {
+    background-color: #d9d9d9;
+    height: 90%;
+    position: relative;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+
+    .bodyContent {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      height: 100%;
+
+      .left {
+        position: absolute;
+        left: 0%;
+        top: 10%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: start;
+        justify-content: space-evenly;
+        border-right: solid 2px black;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          margin-left: 20%;
+          width: 50%;
+          padding-bottom: 20px;
+          border-bottom: 2px solid #040404;
+
+          span {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: row;
+            height: 50px;
+
+            h3 {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .right {
+        position: absolute;
+        right: 0%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        justify-content: space-evenly;
+
+        h2 {
+          width: 100%;
+          text-align: center;
+          font-size: 30px;
+        }
+        img {
+          width: 150px;
+          width: 150px;
+          object-fit: cover;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px #040040;
+        }
+      }
+    }
+
+    h1 {
+      width: 100%;
+      position: absolute;
+      text-align: center;
+    }
+  }
+}
