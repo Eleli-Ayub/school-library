@@ -6,28 +6,37 @@ router.post("/signup", async (req, res) => {
   const bodydata = req.body;
 
   const imageurl = bodydata.imageurl;
-  const studentName = bodydata.studentName;
+  const firstName = bodydata.firstName;
+  const lastName = bodydata.lastName;
+  const phoneNumber = bodydata.phoneNumber;
+  const emailAddress = bodydata.emailAddress;
   const adminNo = bodydata.adminNo;
   const course = bodydata.course;
+  const password = bodydata.password;
 
   //Check if the student already exists
-  if (Student.exists({ AdminNo: adminNo })) {
-    res.send({ msg: "Student Already Exists" });
+  const userExist = Student.find({ AdminNo: adminNo });
+  if ((await userExist).length > 0) {
+    res.send("Student Already Exists");
   } else {
     const newStudent = new Student({
-      Imageurl: imageurl,
-      StudentName: studentName,
+      ImageUrl: imageurl,
+      FirstName: firstName,
+      LastName: lastName,
+      PhoneNumber: phoneNumber,
+      EmailAddress: emailAddress,
       AdminNo: adminNo,
       Course: course,
-      BooksBorrowed: 0,
-      TotalPenalty: 0,
+      Password: password,
+      BooksBorrowed: [],
+      TotalPenalty: 0.0,
     });
 
     await newStudent.save().then((error, response) => {
       if (error) {
         console.log(error);
       }
-      console.log(response);
+      return res.send(" was added Succesfully");
     });
   }
 });

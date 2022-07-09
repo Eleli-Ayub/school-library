@@ -5,6 +5,7 @@ const Viewbooks = require("./routes/Viewbooks");
 const Deletebook = require("./routes/Deletebook");
 const Searchbook = require("./routes/Searchbook");
 const Studentsignup = require("./routes/Studentsignup");
+const Studentsignin = require("./routes/Studentsignin");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -28,6 +29,7 @@ app.use("/api/book", Viewbooks);
 app.use("/api/book", Deletebook);
 app.use("/api/book", Searchbook);
 app.use("/api/students", Studentsignup);
+app.use("/api/students", Studentsignin);
 
 //Listen the app
 app.listen(PORT, (error) => {

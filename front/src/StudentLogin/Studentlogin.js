@@ -5,9 +5,8 @@ import axios from "axios";
 
 function Studentlogin() {
   //Set states for the entered details in the body
-  const [username, setUsername] = useState("");
+  const [adminNo, setAdminNo] = useState("");
   const [password, setPassword] = useState("");
-  const [loginstatus, setLoginStatus] = useState(false);
 
   //For navigation after login status has been set
   const navigate = useNavigate();
@@ -16,16 +15,15 @@ function Studentlogin() {
   const signin = () => {
     axios
       .post("http://localhost:4000/api/students/sign-in", {
-        username: username,
+        adminNo: adminNo,
         password: password,
       })
       .then((response) => {
-        setLoginStatus(true);
-      })
-      .then(() => {
-        loginstatus ? navigate("/Studenthomepage") : navigate("/");
+        alert(response.data.msg);
+        if (response.data.loginstatus == true) {
+          navigate("/Studentspage");
+        }
       });
-    console.log(loginstatus);
   };
 
   return (
@@ -38,7 +36,7 @@ function Studentlogin() {
             type="text"
             placeholder="Admision Number"
             onChange={(event) => {
-              setUsername(event.target.value);
+              setAdminNo(event.target.value);
             }}
           />
           <label>User Password: </label>

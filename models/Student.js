@@ -5,19 +5,19 @@ const studentSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  firstName: {
+  FirstName: {
     type: String,
     required: true,
   },
-  lastName: {
+  LastName: {
     type: String,
     required: true,
   },
-  phoneNumber: {
+  PhoneNumber: {
     type: String,
     required: true,
   },
-  emailAddress: {
+  EmailAddress: {
     type: String,
     required: true,
   },
@@ -29,6 +29,10 @@ const studentSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  Password: {
+    type: String,
+    required: true,
+  },
   BooksBorrowed: [
     {
       BookName: String,
@@ -36,6 +40,7 @@ const studentSchema = mongoose.Schema({
       ReturnStatus: Boolean,
     },
   ],
+
   TotalPenalty: {
     type: Number,
     required: true,
