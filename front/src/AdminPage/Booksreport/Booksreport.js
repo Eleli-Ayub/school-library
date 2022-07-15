@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Booksreport.scss";
 import { Link } from "react-router-dom";
 import logoImage from "./logo.jpg";
+import axios from "axios";
 
 function Booksreport() {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/book/view-books").then((res) => {
+      setBooks(res.data);
+    });
+  }, []);
   return (
     <div className="bookReportWrapper">
       <Link to="/Adminpage">Library System</Link>
       <div className="container">
-        <h1>Books Summary Report</h1>
+        <h1>Books Lending Summary Report</h1>
+
         <div className="bodyContent">
           <div className="left">
             <div className="bookStats">

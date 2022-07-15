@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Book from "./Book/Book";
 import { Link } from "react-router-dom";
 import "./Admin.scss";
 import searchIcon from "./search.png";
+import Borrowedbook from "./BorrowedBooks/Borrowedbook/Borrowedbook";
 import axios from "axios";
 
 function Adminpage() {
   const [books, setBooks] = useState([]);
-
   useEffect(() => {
-    axios.get("http://localhost:4000/api/book/view-books").then((res) => {
+    axios.get("http://localhost:4000/api/book/get-orders").then((res) => {
       setBooks(res.data);
     });
   }, []);
+
   return (
     <div className="homePageWrapper">
       <div className="header">
@@ -22,7 +22,6 @@ function Adminpage() {
         <div className="searchArea">
           <input type="text" placeholder="Enter Author or Book Name" />
           <button>
-            {" "}
             <img src={searchIcon} alt="" /> Search Book
           </button>
         </div>
@@ -32,10 +31,8 @@ function Adminpage() {
         <h1>Reports From the System</h1>
         <ul>
           <Link to="/Salesreport">Sales Report</Link>
-          <Link to="/Booksreport">Books Report</Link>
           <Link to="/Lastdayreport">Daily Report</Link>
           <Link to="/Weeklyreport">Weekly Report</Link>
-          <Link to="/Booksreport">Books Report</Link>
           <Link to="/Studentreport">Students Report</Link>
           <Link to="/Summaryreport">Summary Report</Link>
         </ul>
@@ -52,6 +49,22 @@ function Adminpage() {
       </div>
       <div className="orders">
         <h1>All Orders</h1>
+        <div className="borrowedBooksList">
+          {books.map((order) => {
+            console.log("Orders");
+            return (
+              <Borrowedbook
+                book_image_url={order.Imageurl}
+                book_author={order.Book_Author}
+                book_name={order.Book_Name}
+                adm_no={order.Student_Reg_No}
+                issue_date={order.Issue_Date}
+                return_date={order.Return_Date}
+                return_status={order.Return_Status}
+              />
+            );
+          })}
+        </div>
       </div>
       {/* <div className="books">
         {books.map((book) => {

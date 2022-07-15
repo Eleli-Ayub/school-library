@@ -16,6 +16,11 @@ function Students() {
     });
   }, []);
 
+  const loginstatus = sessionStorage.getItem("regNumber");
+  useEffect(() => {
+    loginstatus ? console.log("App is logged") : navigate("/");
+  });
+
   return (
     <div className="homePageWrapper">
       <div className="header">
@@ -23,6 +28,7 @@ function Students() {
           className="logout"
           onClick={() => {
             navigate("/");
+            sessionStorage.removeItem("regNumber");
           }}
         >
           Logout

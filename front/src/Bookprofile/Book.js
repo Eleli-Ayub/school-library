@@ -23,29 +23,14 @@ function Book() {
         </div>
         <div className="information">
           <div className="issuesBooks">
-            <h1>Book Previusly Issued to</h1>
+            <h1>Total Revenue</h1>
             <ul>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
+              <li>
+                <b>Ksh. 1200</b>
+              </li>
             </ul>
           </div>
-          <div className="defaultBooks">
-            <h1>Book Not Returned By</h1>
-            <ul>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-              <li>Eleli Ayub</li>
-            </ul>
-          </div>
+
           <div className="stats">
             <h1>Stats Faults and Fines</h1>
             <div className="statInfo">

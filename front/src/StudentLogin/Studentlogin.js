@@ -22,6 +22,7 @@ function Studentlogin() {
         alert(response.data.msg);
         if (response.data.loginstatus == true) {
           navigate("/Studentspage");
+          sessionStorage.setItem("regNumber", adminNo);
         }
       });
   };

@@ -9,9 +9,11 @@ import Studentlogin from "./StudentLogin/Studentlogin";
 import Homepage from "./Homepage/Homepage";
 import Studentsignup from "./StudentSignup/Studentsignup";
 import Profile from "./StudentProfile/Profile";
-import Book from "./Bookprofile/Book";
 import Booksreport from "./AdminPage/Booksreport/Booksreport";
+import Dailyreport from "./AdminPage/Reports/Dailyreport";
 import Borrowed from "./AdminPage/BorrowedBooks/Borrowed";
+import Salesreport from "./AdminPage/Reports/Salesreport";
+import Weeklyreport from "./AdminPage/Reports/Weeklyreport";
 
 function App() {
   return (
@@ -26,10 +28,13 @@ function App() {
           <Route path="/" element={<Studentlogin />} />
           <Route path="/Studentsignup" element={<Studentsignup />} />
           <Route path="/Studentprofile" element={<Profile />} />
-          <Route path="/Bookprofile" element={<Book />} />
+          <Route path="/Bookprofile" element={<Booksreport />} />
           <Route path="/Studentspage" element={<Studentpage />} />
           <Route path="/Booksreport" element={<Booksreport />} />
-          <Route path="/Borrowedbooks" element={<Borrowed />} />{" "}
+          <Route path="/Borrowedbooks" element={<Borrowed />} />
+          <Route path="/Salesreport" element={<Salesreport />} />
+          <Route path="/Lastdayreport" element={<Dailyreport />} />
+          <Route path="/Weeklyreport" element={<Weeklyreport />} />
         </Routes>
       </Router>
     </div>

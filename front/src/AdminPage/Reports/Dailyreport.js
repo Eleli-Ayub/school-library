@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Borrowedbook from "../BorrowedBooks/Borrowedbook/Borrowedbook";
 
-function Salesreport() {
+function Dailyreport() {
   const [todaysSales, setTodaySales] = useState([]);
   const [weeklySales, setWeeklySales] = useState([]);
   const [monthlySales, setMonthlySales] = useState([]);
@@ -40,40 +40,8 @@ function Salesreport() {
           );
         })}
       </span>
-      <span>
-        <h1>Weekly Sales Report</h1>
-        {weeklySales.map((order) => {
-          return (
-            <Borrowedbook
-              book_image_url={order.Imageurl}
-              book_author={order.Book_Author}
-              book_name={order.Book_Name}
-              adm_no={order.Student_Reg_No}
-              issue_date={order.Issue_Date}
-              return_date={order.Return_Date}
-              return_status={order.Return_Status}
-            />
-          );
-        })}
-      </span>
-      <span>
-        <h1>Monthly Sales Report</h1>
-        {monthlySales.map((order) => {
-          return (
-            <Borrowedbook
-              book_image_url={order.Imageurl}
-              book_author={order.Book_Author}
-              book_name={order.Book_Name}
-              adm_no={order.Student_Reg_No}
-              issue_date={order.Issue_Date}
-              return_date={order.Return_Date}
-              return_status={order.Return_Status}
-            />
-          );
-        })}
-      </span>
     </div>
   );
 }
 
-export default Salesreport;
+export default Dailyreport;

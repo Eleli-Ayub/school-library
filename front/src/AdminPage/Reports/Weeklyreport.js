@@ -24,41 +24,10 @@ function Salesreport() {
   return (
     <div className="salesWrapper">
       <Link to="/Adminpage">Library System</Link>
-      <span>
-        <h1>Today's Sales Report</h1>
-        {todaysSales.map((order) => {
-          return (
-            <Borrowedbook
-              book_image_url={order.Imageurl}
-              book_author={order.Book_Author}
-              book_name={order.Book_Name}
-              adm_no={order.Student_Reg_No}
-              issue_date={order.Issue_Date}
-              return_date={order.Return_Date}
-              return_status={order.Return_Status}
-            />
-          );
-        })}
-      </span>
+
       <span>
         <h1>Weekly Sales Report</h1>
         {weeklySales.map((order) => {
-          return (
-            <Borrowedbook
-              book_image_url={order.Imageurl}
-              book_author={order.Book_Author}
-              book_name={order.Book_Name}
-              adm_no={order.Student_Reg_No}
-              issue_date={order.Issue_Date}
-              return_date={order.Return_Date}
-              return_status={order.Return_Status}
-            />
-          );
-        })}
-      </span>
-      <span>
-        <h1>Monthly Sales Report</h1>
-        {monthlySales.map((order) => {
           return (
             <Borrowedbook
               book_image_url={order.Imageurl}

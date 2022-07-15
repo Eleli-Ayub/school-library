@@ -10,27 +10,17 @@ function Book({ book_image_url, book_name, book_author, copies_available, i }) {
         book_image_url: book_image_url,
         book_name: book_name,
         book_author: book_author,
-        adminNo: adminNo,
+        adminNo: sessionStorage.getItem("regNumber"),
       })
       .then((response) => {
         alert(response.data.msg);
       });
   };
-  const [adminNo, setAdminNo] = useState(null);
   return (
     <div className="bookWrapper">
-      <div className="prompt">
-        <input
-          type="text"
-          onChange={(event) => {
-            setAdminNo(event.target.value);
-          }}
-        />
-      </div>
       <img src={book_image_url} alt="" />
       <h2 id="h2">{book_name}</h2>
       <p>{book_author}</p>
-      <h4>500 Reads</h4>
       <h3>{copies_available} copies available</h3>
       <button onClick={requestBook}>Request Book</button>
     </div>

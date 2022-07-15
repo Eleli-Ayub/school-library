@@ -6,13 +6,7 @@ import axios from "axios";
 
 function Borrowed() {
   const [orders, setOrders] = useState([]);
-  const updateLocalBooks = (book) => {
-    setOrders((prev) => {
-      return prev.map((singleBook, index) =>
-        singleBook.Book_Name === book.Book_Name ? book : singleBook
-      );
-    });
-  };
+
   useEffect(() => {
     axios.get("http://localhost:4000/api/book/get-orders").then((res) => {
       setOrders(res.data);
@@ -45,7 +39,6 @@ function Borrowed() {
               issue_date={order.Issue_Date}
               return_date={order.Return_Date}
               return_status={order.Return_Status}
-              updateLocalBooks={updateLocalBooks}
             />
           );
         })}

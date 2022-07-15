@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { response } = require("express");
 const Borrowedbook = require("../models/Borrowedbook");
 const Student = require("../models/Student");
+const Book = require("../models/Book");
 
 router.post("/order-book", async (req, res) => {
   //Get data about the book being requested
@@ -45,6 +45,16 @@ router.post("/order-book", async (req, res) => {
 
     Student.findOne({ Student_Reg_No: studentRegNo }, (error, payload) => {
       payload.TotalPenalty += 100;
+
+      payload.save((err, anotherPayload) => {
+        if (err) return res.status(500).send("Error");
+        return res.send({
+          msg: `${bookName} by ${bookAuthor} was requested. \nVisit the library to collect book`,
+        });
+      });
+    });
+    Book.findOne({ Name: bookName }, (error, payload) => {
+      payload.CopiesAvailable -= 1;
 
       payload.save((err, anotherPayload) => {
         if (err) return res.status(500).send("Error");
