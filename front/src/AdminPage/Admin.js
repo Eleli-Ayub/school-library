@@ -33,17 +33,13 @@ function Adminpage() {
           <Link to="/Salesreport">Sales Report</Link>
           <Link to="/Lastdayreport">Daily Report</Link>
           <Link to="/Weeklyreport">Weekly Report</Link>
-          <Link to="/Studentreport">Students Report</Link>
-          <Link to="/Summaryreport">Summary Report</Link>
+          <Link to="/Booksreport">Summary Report</Link>
         </ul>
       </div>
       <div className="management">
         <h1>Order Management</h1>
         <ul>
-          <Link to="/Bookorders">Active Book Request</Link>
-          <Link to="/Defaultedorders">Defaulted Books</Link>
-          <Link to="/Allorders">All Orders</Link>
-          <Link to="/Allstudents">All Students</Link>
+          <Link to="/Activebookorders">Active Book Request</Link>
           <Link to="/Allbooks">All Books</Link>
         </ul>
       </div>

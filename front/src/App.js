@@ -14,6 +14,8 @@ import Dailyreport from "./AdminPage/Reports/Dailyreport";
 import Borrowed from "./AdminPage/BorrowedBooks/Borrowed";
 import Salesreport from "./AdminPage/Reports/Salesreport";
 import Weeklyreport from "./AdminPage/Reports/Weeklyreport";
+import Allbooks from "./AdminPage/Allbooks/Allbooks";
+import Activebookorders from "./AdminPage/Activebookorders/Activebookorders";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/Salesreport" element={<Salesreport />} />
           <Route path="/Lastdayreport" element={<Dailyreport />} />
           <Route path="/Weeklyreport" element={<Weeklyreport />} />
+          <Route path="/Allbooks" element={<Allbooks />} />
+          <Route path="/Activebookorders" element={<Activebookorders />} />
         </Routes>
       </Router>
     </div>

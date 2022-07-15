@@ -14,6 +14,7 @@ const Monthlysales = require("./routes/Monthlysales");
 const Getstudents = require("./routes/Getstudents");
 const Studentsignup = require("./routes/Studentsignup");
 const Studentsignin = require("./routes/Studentsignin");
+const Activeorders = require("./routes/Activeorders");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -43,6 +44,7 @@ app.use("/api/admin", Signin);
 app.use("/api/book", Dailysales);
 app.use("/api/book", Weeklysales);
 app.use("/api/book", Monthlysales);
+app.use("/api/book", Activeorders);
 app.use("/api/students", Getstudents);
 app.use("/api/students", Studentsignup);
 app.use("/api/students", Studentsignin);

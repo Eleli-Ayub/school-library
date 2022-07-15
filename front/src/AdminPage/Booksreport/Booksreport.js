@@ -6,9 +6,10 @@ import axios from "axios";
 
 function Booksreport() {
   const [books, setBooks] = useState([]);
+  const firstBook = books[0];
   useEffect(() => {
-    axios.get("http://localhost:4000/api/book/view-books").then((res) => {
-      setBooks(res.data);
+    axios.get("http://localhost:4000/api/book/get-orders").then((res) => {
+      setBooks(res.data.sort(res.data.CopiesAvailable));
     });
   }, []);
   return (
@@ -21,26 +22,18 @@ function Booksreport() {
           <div className="left">
             <div className="bookStats">
               <span>
-                <h3>Total Books: </h3>
-                <p>20</p>
-              </span>
-              <span>
                 <h3>Total Issues: </h3>
-                <p>20</p>
-              </span>
-              <span>
-                <h3>Total Defaults: </h3>
-                <p>20</p>
+                <p>{books.length}</p>
               </span>
               <span>
                 <h3>Total Earnings: </h3>
-                <p>20</p>
+                <p>{books.length * 100}</p>
               </span>
             </div>
             <div className="borrowedStats">
               <span>
                 <h3>Most Borrowed: </h3>
-                <p>Art of War</p>
+                <p>Art Of Power</p>
               </span>
               <span>
                 <h3>Least Borrowed: </h3>
@@ -74,7 +67,7 @@ function Booksreport() {
               </span>
               <span>
                 <h3>Most Defaulting Student: </h3>
-                <p>Eleli Ayub</p>
+                <p>Velma Atieno</p>
               </span>
             </div>
             <h2>Wangwana Library</h2>
