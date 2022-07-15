@@ -16,11 +16,6 @@ function Adminpage() {
   return (
     <div className="homePageWrapper">
       <div className="header">
-        <div className="logs">
-          <Link to="/Studentprofile">Student Logs</Link>
-          <Link to="/Booksreport">Library Logs</Link>
-          <Link to="/Borrowedbooks">Borrowed Books</Link>
-        </div>
         <div className="title">
           <h1>Wangwana School Library System.</h1>
         </div>
@@ -33,7 +28,32 @@ function Adminpage() {
         </div>
         <Link to="/Addbook">Add Book</Link>
       </div>
-      <div className="books">
+      <div className="reports">
+        <h1>Reports From the System</h1>
+        <ul>
+          <Link to="/Salesreport">Sales Report</Link>
+          <Link to="/Booksreport">Books Report</Link>
+          <Link to="/Lastdayreport">Daily Report</Link>
+          <Link to="/Weeklyreport">Weekly Report</Link>
+          <Link to="/Booksreport">Books Report</Link>
+          <Link to="/Studentreport">Students Report</Link>
+          <Link to="/Summaryreport">Summary Report</Link>
+        </ul>
+      </div>
+      <div className="management">
+        <h1>Order Management</h1>
+        <ul>
+          <Link to="/Bookorders">Active Book Request</Link>
+          <Link to="/Defaultedorders">Defaulted Books</Link>
+          <Link to="/Allorders">All Orders</Link>
+          <Link to="/Allstudents">All Students</Link>
+          <Link to="/Allbooks">All Books</Link>
+        </ul>
+      </div>
+      <div className="orders">
+        <h1>All Orders</h1>
+      </div>
+      {/* <div className="books">
         {books.map((book) => {
           return (
             <Book
@@ -44,7 +64,7 @@ function Adminpage() {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }
