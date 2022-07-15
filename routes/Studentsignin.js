@@ -10,9 +10,16 @@ router.post("/sign-in", async (req, res) => {
       res.send(error);
     }
     if (result.length > 0) {
-      res.send({ loginstatus: true, msg: "Login Succesfull" });
+      res.send({
+        loginstatus: true,
+        msg: "Login Succesfull",
+      });
     } else {
-      res.send({ msg: "Invalid credentials", loginstatus: false });
+      res.send({
+        userData: result,
+        msg: "Invalid credentials",
+        loginstatus: false,
+      });
     }
   });
 });

@@ -8,11 +8,8 @@ import axios from "axios";
 function Students() {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
-  const item = useRef();
 
-  const requestBook = () => {
-    console.log(item);
-  };
+  const requestBook = (e) => {};
   useEffect(() => {
     axios.get("http://localhost:4000/api/book/view-books").then((res) => {
       setBooks(res.data);
@@ -25,7 +22,7 @@ function Students() {
         <button
           className="logout"
           onClick={() => {
-            navigate("/Studentlogin");
+            navigate("/");
           }}
         >
           Logout
@@ -41,16 +38,16 @@ function Students() {
         </div>
       </div>
       <div className="books">
-        {books.map((book) => {
-          return (item.current = (
+        {books.map((book, i) => {
+          return (
             <Book
+              i={i}
               book_image_url={book.ThumbnailUrl}
               book_name={book.Name}
               book_author={book.Author}
               copies_available={book.CopiesAvailable}
-              requestBook={requestBook}
             />
-          ));
+          );
         })}
       </div>
     </div>

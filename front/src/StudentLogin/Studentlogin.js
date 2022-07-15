@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Studentlogin.scss";
 import axios from "axios";
 
@@ -49,9 +49,9 @@ function Studentlogin() {
           />
         </div>
         <button onClick={signin}>Login</button>
-        <a className="resetLink" href="#">
-          Forgot Password?
-        </a>
+        <Link className="resetLink" to="/Studentsignup">
+          Do not have an account? Sign Up.
+        </Link>
       </div>
       <div className="siteTitle">
         <h1>Welcome To Wangwana Library System</h1>

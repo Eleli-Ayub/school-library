@@ -9,6 +9,12 @@
   box-shadow: 0px 0px 20px #000;
   margin: 20px;
 
+  .prompt {
+    background: none;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
   img {
     height: 40%;
     width: 200px;

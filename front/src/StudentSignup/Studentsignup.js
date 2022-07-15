@@ -53,7 +53,7 @@ function Studentsignup() {
           password: password,
         }).then((response) => {
           alert(firstName + " " + lastName + " " + response.data);
-          navigate("/Studentlogin");
+          navigate("/");
         });
       } catch (error) {
         console.log(error);
@@ -167,7 +167,7 @@ function Studentsignup() {
           </div>
           <button onClick={register}>Register</button>
           <div className="bottom">
-            Already have an account? <a href="#">Login.</a>
+            Already have an account? <Link to="/Studentlogin">Login.</Link>
           </div>
         </div>
       </div>

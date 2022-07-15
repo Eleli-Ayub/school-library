@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server.js",
+    "server": "nodemon --max-old-space-size=2096 server.js",
     "front": "npm run start --prefix front",
-    "dev":"concurrently \" npm run server\" \"npm run front\""
+    "dev": "concurrently \" npm run server\" \"npm run front\""
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.1",
     "node-localstorage": "^2.2.1",
+    "nodemailer": "^6.7.7",
     "nodemon": "^2.0.18"
   }
 }

@@ -5,7 +5,6 @@ import Adminpage from "./AdminPage/Admin";
 import Addbook from "./Addbook/Addbook";
 import Checkout from "./Checkout/Checkout";
 import Studentpage from "./Studentspage/Studentpage";
-import Library_logs from "./LibraryLogs/Librarylogs";
 import Studentlogin from "./StudentLogin/Studentlogin";
 import Homepage from "./Homepage/Homepage";
 import Studentsignup from "./StudentSignup/Studentsignup";
@@ -24,8 +23,7 @@ function App() {
           <Route path="/Adminpage" element={<Adminpage />} />
           <Route path="/Addbook" element={<Addbook />} />
           <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/Librarylogs" element={<Library_logs />} />
-          <Route path="/Studentlogin" element={<Studentlogin />} />
+          <Route path="/" element={<Studentlogin />} />
           <Route path="/Studentsignup" element={<Studentsignup />} />
           <Route path="/Studentprofile" element={<Profile />} />
           <Route path="/Bookprofile" element={<Book />} />

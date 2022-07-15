@@ -17,8 +17,8 @@ function Adminpage() {
     <div className="homePageWrapper">
       <div className="header">
         <div className="logs">
-          <Link to="/Students">Student Logs</Link>
-          <Link to="/Librarylogs">Library Logs</Link>
+          <Link to="/Studentprofile">Student Logs</Link>
+          <Link to="/Booksreport">Library Logs</Link>
           <Link to="/Borrowedbooks">Borrowed Books</Link>
         </div>
         <div className="title">
@@ -35,7 +35,6 @@ function Adminpage() {
       </div>
       <div className="books">
         {books.map((book) => {
-          console.log(book);
           return (
             <Book
               book_image_url={book.ThumbnailUrl}

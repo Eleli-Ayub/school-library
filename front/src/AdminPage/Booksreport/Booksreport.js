@@ -1,11 +1,12 @@
 import React from "react";
 import "./Booksreport.scss";
+import { Link } from "react-router-dom";
 import logoImage from "./logo.jpg";
 
 function Booksreport() {
   return (
     <div className="bookReportWrapper">
-      <a href="">Library System</a>
+      <Link to="/Adminpage">Library System</Link>
       <div className="container">
         <h1>Books Summary Report</h1>
         <div className="bodyContent">

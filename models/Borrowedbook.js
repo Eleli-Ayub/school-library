@@ -13,26 +13,22 @@ const borrowedBookSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Phone_Number: {
-    type: String,
-    required: true,
-  },
   Student_Reg_No: {
     type: String,
     required: true,
   },
   Issue_Date: {
-    type: Date,
+    type: String,
     required: true,
   },
   Return_Date: {
-    type: Date,
+    type: String,
     required: true,
   },
-  Status: {
-    type: Boolean,
+  Return_Status: {
+    type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model("Borrowed_Book", borrowedBookSchema);
+module.exports = mongoose.model("borrowed_books", borrowedBookSchema);

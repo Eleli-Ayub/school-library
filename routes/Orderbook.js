@@ -1,48 +1,58 @@
 const router = require("express").Router();
 const { response } = require("express");
-const Borrowed_Book = require("../models/Borrowedbooks");
+const Borrowedbook = require("../models/Borrowedbook");
+const Student = require("../models/Student");
 
 router.post("/order-book", async (req, res) => {
   //Get data about the book being requested
-  const bookImgUrl = req.body.bookImgUrl;
-  const bookAuthor = req.body.bookImgUrl;
-  const bookName = req.body.bookImgUrl;
-  const phoneNumber = req.body.bookImgUrl;
-  const studentRegNo = req.body.bookImgUrl;
+  const bookImgUrl = req.body.book_image_url;
+  const bookAuthor = req.body.book_author;
+  const bookName = req.body.book_name;
+  const studentRegNo = req.body.adminNo;
 
   //Get the dates on book order
-  const Date = new Date();
-  const month = Date.toLocaleString("default", { month: "short" });
-  const date = Date.getDate();
-  const year = Date.getFullYear();
+  const todayDate = new Date();
+  const month = todayDate.toLocaleString("default", { month: "short" });
+  const date = todayDate.getDate();
+  const year = todayDate.getFullYear();
   const issueDate = `${date}/${month}/${year}`;
 
-  const Return_Date = new Date() * 1000 * 60 * 60 * 24 * 7;
+  //Get book return dates
+  const Return_Date = todayDate;
+  Return_Date.setDate(todayDate.getDate() + 7);
   const returnMonth = Return_Date.toLocaleString("default", { month: "short" });
   const returnDate = Return_Date.getDate();
   const returnYear = Return_Date.getFullYear();
 
   const returnTime = `${returnDate}/${returnMonth}/${returnYear}`;
 
-  const New_Borrowed_Book = new Borrowed_Book({
+  //Innitiate data for the new order record
+
+  const New_Borrowed_Book = new Borrowedbook({
     Imageurl: bookImgUrl,
     Book_Author: bookAuthor,
     Book_Name: bookName,
-    Phone_Number: phoneNumber,
     Student_Reg_No: studentRegNo,
     Issue_Date: issueDate,
     Return_Date: returnTime,
-    Status: "Not Returned",
+    Return_Status: "False",
   });
 
-  try {
-    await New_Borrowed_Book.save().then((error, response) => {
-      if (error) {
-        console.log(error);
-      }
-      res.send({ mg: "Book was Booked Succesfully" });
+  New_Borrowed_Book.save().then((payload, error) => {
+    if (error) {
+      return res.status(500).send(error.message);
+    }
+
+    Student.findOne({ Student_Reg_No: studentRegNo }, (error, payload) => {
+      payload.TotalPenalty += 100;
+
+      payload.save((err, anotherPayload) => {
+        if (err) return res.status(500).send("Error");
+        return res.send({
+          msg: `${bookName} by ${bookAuthor} was requested. \nVisit the library to collect book`,
+        });
+      });
     });
-  } catch (error) {
-    console.log(error);
-  }
+  });
 });
+module.exports = router;

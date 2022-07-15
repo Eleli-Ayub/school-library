@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Borrowed.scss";
+import { Link } from "react-router-dom";
 import Borrowedbook from "./Borrowedbook/Borrowedbook";
+import axios from "axios";
 
 function Borrowed() {
+  const [orders, setOrders] = useState([]);
+  const updateLocalBooks = (book) => {
+    setOrders((prev) => {
+      return prev.map((singleBook, index) =>
+        singleBook.Book_Name === book.Book_Name ? book : singleBook
+      );
+    });
+  };
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/book/get-orders").then((res) => {
+      setOrders(res.data);
+    });
+  }, []);
   return (
     <div className="borrowedBooksWrapperS">
       <div className="header">
         <h1>Wangwana Library System</h1>
         <h2>Borrowed Book List</h2>
-        <a href="">Library System</a>
+        <Link to="/Adminpage">Library System</Link>
       </div>
       <div className="title">
         <span></span>
         <span>Book Author</span>
         <span>Book Name</span>
-        <span>Phone No.</span>
-        <span>Student Name</span>
+        <span>Adm No</span>
         <span>Issue Date</span>
         <span>Return Date</span>
         <span>Status</span>
       </div>
       <div className="borrowedBooksList">
-        <Borrowedbook />
-        <Borrowedbook />
-        <Borrowedbook />
+        {orders.map((order) => {
+          return (
+            <Borrowedbook
+              book_image_url={order.Imageurl}
+              book_author={order.Book_Author}
+              book_name={order.Book_Name}
+              adm_no={order.Student_Reg_No}
+              issue_date={order.Issue_Date}
+              return_date={order.Return_Date}
+              return_status={order.Return_Status}
+              updateLocalBooks={updateLocalBooks}
+            />
+          );
+        })}
       </div>
     </div>
   );

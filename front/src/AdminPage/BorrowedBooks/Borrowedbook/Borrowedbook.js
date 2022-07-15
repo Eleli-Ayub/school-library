@@ -1,21 +1,43 @@
+import axios from "axios";
 import React from "react";
 import "./Borrowedbook.scss";
-import book from "./book.jpeg";
 
-function Borrowedbook() {
+function Borrowedbook({
+  book_image_url,
+  book_author,
+  book_name,
+  adm_no,
+  issue_date,
+  return_date,
+  return_status,
+  updateLocalBooks,
+}) {
+  const changeLoginStatus = () => {
+    axios
+      .post("http://localhost:4000/api/book/return-book", {
+        // book_author: book_author,
+        book_name: book_name,
+        adm_no: adm_no,
+      })
+      .then((response) => {
+        alert(`${response.data.msg} \n Visit library to collect book`);
+        // updateLocalBooks(response.data);
+      });
+  };
   return (
     <div className="borrowedBookWrapper">
       <div className="details">
         <span>
-          <img src={book} alt="" />
+          <img src={book_image_url} alt="" />
         </span>
-        <span>Dan Brown</span>
-        <span>Alchemist</span>
-        <span>071985675</span>
-        <span>BUS-242-026/2018</span>
-        <span>12 March 2022</span>
-        <span>20 March 2022</span>
-        <span>Returned</span>
+        <span>{book_author}</span>
+        <span>{book_name}</span>
+        <span>{adm_no}</span>
+        <span>{issue_date}</span>
+        <span>{return_date}</span>
+        <span>
+          <button onClick={changeLoginStatus}>{return_status}</button>
+        </span>
       </div>
     </div>
   );

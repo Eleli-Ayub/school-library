@@ -1,9 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Addbook = require("./routes/Addbook");
+const Orderbook = require("./routes/Orderbook");
+const Getorders = require("./routes/Getorders");
 const Viewbooks = require("./routes/Viewbooks");
 const Deletebook = require("./routes/Deletebook");
 const Searchbook = require("./routes/Searchbook");
+const Signin = require("./routes/Signin");
+const Returnbook = require("./routes/Returnbook");
+const Getstudents = require("./routes/Getstudents");
 const Studentsignup = require("./routes/Studentsignup");
 const Studentsignin = require("./routes/Studentsignin");
 const cors = require("cors");
@@ -28,6 +33,11 @@ app.use("/api/book", Addbook);
 app.use("/api/book", Viewbooks);
 app.use("/api/book", Deletebook);
 app.use("/api/book", Searchbook);
+app.use("/api/book", Orderbook);
+app.use("/api/book", Getorders);
+app.use("/api/book", Returnbook);
+app.use("/api/admin", Signin);
+app.use("/api/students", Getstudents);
 app.use("/api/students", Studentsignup);
 app.use("/api/students", Studentsignin);
 
